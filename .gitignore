@@ -17,3 +17,11 @@ vendor/
 .vscode/
 .DS_Store
 *.tgz
+
+# Frontend build
+node_modules
+dist
+
+# Environment
+.env
+.env.*.local
