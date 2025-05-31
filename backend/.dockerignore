@@ -1,0 +1,28 @@
+# сборка
+bin/
+build/
+dist/
+
+# бинарники
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# логи, временные, окружение
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.DS_Store
+*.idea/
+.vscode/
+*.env
+
+# версионирование
+.git
+.gitignore
