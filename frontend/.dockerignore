@@ -1,0 +1,28 @@
+# зависимости
+node_modules
+
+# сборка
+.cache
+dist
+build
+*.local
+
+# системные файлы
+.DS_Store
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# IDE
+*.idea/
+.vscode/
+*.iml
+
+# версионирование
+.git
+.gitignore
+
+# тесты, логи
+coverage
+*.log
