@@ -97,13 +97,14 @@ jobs:
           target: "/home/${{ secrets.HOST_USER }}/app"
       - name: Run docker-compose on server
         uses: appleboy/ssh-action@v1.2.2
-        env:
-          DOCKER_USER: ${{ secrets.DOCKER_USER }}        
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.HOST_PRIVATE_KEY }}
           script: |
             cd ~/app
+            # export DOCKER_USER=${{ secrets.DOCKER_USER }}
             sudo docker compose pull
             sudo docker compose up -d
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
