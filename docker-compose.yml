@@ -13,7 +13,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
-      start_period: 5s
+      start_period: 10s
     deploy:
       resources:
         limits:
@@ -46,7 +46,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
-      start_period: 5s
+      start_period: 10s
     deploy:
       resources:
         limits:
@@ -66,6 +66,26 @@ services:
       - nginx-cache:/var/cache/nginx:rw
       - nginx-pid:/var/run:rw
 
+  gateway:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - momo-network
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "gateway"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+    volumes:
+      - ./gateway.conf:/etc/nginx/nginx.conf:ro
+      - gateway-cache:/var/cache/nginx:rw
+      - gateway-logs:/var/log/nginx:rw
+
 networks:
   momo-network:
     driver: bridge
@@ -73,3 +93,5 @@ networks:
 volumes:
   nginx-cache:
   nginx-pid:
+  gateway-cache:
+  gateway-logs:
