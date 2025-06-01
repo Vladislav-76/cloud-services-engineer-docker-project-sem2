@@ -4,7 +4,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: backend
+    # container_name: backend
     networks:
       - momo-network
     restart: unless-stopped
@@ -35,7 +35,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: frontend
+    # container_name: frontend
     networks:
       - momo-network    
     restart: unless-stopped
