@@ -101,8 +101,9 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.HOST_PRIVATE_KEY }}
+          env:
+            DOCKER_USER: ${{ secrets.DOCKER_USER }}
           script: |
             cd ~/app
-            export DOCKER_USER=${{ secrets.DOCKER_USER }}
             sudo docker compose pull
             sudo docker compose up -d
