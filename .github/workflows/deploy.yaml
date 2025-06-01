@@ -107,6 +107,7 @@ jobs:
           envs: DOCKER_USER
           script: |
             cd ~/app
+            echo $DOCKER_USER
             # export DOCKER_USER=${{ secrets.DOCKER_USER }}
             sudo docker compose pull
             sudo docker compose up -d
