@@ -105,6 +105,8 @@ jobs:
           script: |
             cd ~/app
             echo "Using DOCKER_USER=$DOCKER_USER"
+            export DOCKER_USER=$DOCKER_USER
+            echo "Image: ${DOCKER_USER}/docker-project-frontend:latest"
             sudo docker compose pull
             sudo docker compose up -d
         env:
