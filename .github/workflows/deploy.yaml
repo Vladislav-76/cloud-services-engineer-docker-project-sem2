@@ -104,11 +104,11 @@ jobs:
           envs: DOCKER_USER
           script: |
             cd ~/app
-            echo "Using DOCKER_USER=$DOCKER_USER"
-            export DOCKER_USER=$DOCKER_USER
-            echo "Image: ${DOCKER_USER}/docker-project-frontend:latest"
-            sudo docker compose pull
-            sudo docker compose up -d
+            echo "DOCKER_USER=$DOCKER_USER" > .env
+            # export DOCKER_USER=$DOCKER_USER
+            # echo "Image: ${DOCKER_USER}/docker-project-frontend:latest"
+            sudo docker compose --env-file .env pull
+            sudo docker compose --env-file .env up -d
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
 
