@@ -83,8 +83,7 @@ jobs:
   deploy_to_server:
     name: Deploy to Server
     runs-on: ubuntu-latest
-    # needs: run-with-docker-compose
-    needs: scan_vulnerabilities
+    needs: run-with-docker-compose
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

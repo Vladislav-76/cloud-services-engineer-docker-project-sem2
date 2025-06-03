@@ -73,6 +73,7 @@ services:
       - frontend
     networks:
       - momo-network
+    restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "gateway"]
       interval: 30s
